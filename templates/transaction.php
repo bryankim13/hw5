@@ -21,6 +21,7 @@
               <div class="collapse navbar-collapse justify-content-between"  id="navbarNavAltMarkup">
                 <div class="navbar-nav mx-auto">
                   <a class="nav-item nav-link active" href= "<?=$this->url?>/transaction_history/">Transaction History</a>
+                  <a class="nav-item nav-link active" href= "<?=$this->url?>/newTrans/">New Transactions</a>
                   <a class="nav-item nav-link active" href= "<?=$this->url?>/logout/">Log Out</a>
                 </div>
               </div>
