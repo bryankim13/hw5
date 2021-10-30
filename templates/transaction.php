@@ -38,9 +38,11 @@
             <div class="row justify-content-center">
                 transactionsHistory
                 <?php
+                    echo "<table><tr><td><center><b>Transaction Name</b></center></td><td><center><b>Date</b></center></td><td><center><b>Amount</b></center></td><td><center><b>Transaction Type</b></center></td></tr><br>";
                     foreach($data2 as $row) {
-                        echo "<p>" . $row["name"] . " " . $row["date_transaction"] . " " . $row["amount"] . " " . $row["transaction_type"] . "</p>";
+                        echo "<tr><td><center>" . $row["name"] . " " . $row["date_transaction"] . " " . $row["amount"] . " " . $row["transaction_type"] . "</center></td></tr><br>";
                     }
+                    echo "</table>";
                 ?>
             </div>
         </div>
