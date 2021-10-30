@@ -23,7 +23,7 @@
             </div>
         </div>
         <div>
-            <form action="newTrans.php" method="get">
+            <form action="newTrans.php" method="post">
                 <div class="container-fluid px-5">
                 <div class="mx-6">
                     <label for="name" class="form-label">Transaction Name</label>
@@ -34,8 +34,12 @@
                     <input type="date" class="form-control" id="date" name="date" required>
                 </div>
                 <div class="mx-6">
-                    <label for="inout" class="form-label">Transaction Type</label>
-                    <select id="inout" name="inout" class="form-select" required size="2">
+                    <label for="amount" class="form-label">Transaction Name</label>
+                    <input type="number" class="form-control" id="amount" name="amount" min="0.01" required>
+                </div>
+                <div class="mx-6">
+                    <label for="type" class="form-label">Transaction Type</label>
+                    <select id="type" name="type" class="form-select" required size="2">
                         <option value="credit" selected>Credit</option>
                         <option value="debit">Debit</option>
                     </select>

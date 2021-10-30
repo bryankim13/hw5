@@ -6,6 +6,7 @@
     $db = new mysqli($dbserver, $dbuser, $dbpass, $dbdatabase);
 
     /* Setting up user table */
+    $db->query("drop table if exists hw5user");
     $db->query("create table hw5user (
         uid int not null auto_increment,
         username text not null,
@@ -14,6 +15,7 @@
         primary key (uid));");
 
     /* Setting up question table */
+    $db->query("drop table if exists transaction");
     $db->query("create table transaction (
         tid int not null auto_increment,
         uid int not null,

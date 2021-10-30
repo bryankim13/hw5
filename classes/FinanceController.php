@@ -13,7 +13,7 @@ class FinanceController {
     public function run($command) {
         
         switch($command) {
-            case "new_transaction":
+            case "newTrans":
                 $this->newTrans();
                 break;
             case "transaction_history":
@@ -88,7 +88,7 @@ class FinanceController {
             $uid = $data[0]["uid"];
         }
 
-        $data2 = $this->db->query("select * from transaction where uid = ?;", "i", $uid);
+        $data2 = $this->db->query("select * from transaction where uid = ? order by date_transaction desc;", "i", $uid);
         if ($data2 === false) {
             $error_msg = "Error checking for user";
         }
@@ -104,6 +104,25 @@ class FinanceController {
     }
 
     public function newTrans() {
+        if (!isset($_SESSION["email"])) {
+            header("Location: {$this->url}/login/");
+            return;
+        } else {
+            if (isset($_POST["name"])) {
+                $data = $this->db->query("select * from hw5user where email = ?;", "s", $_SESSION["email"]);
+                $uid = "";
+                if ($data === false) {
+                    $error_msg = "Error checking for user";
+                } else if (!empty($data)) {
+                    $uid = $data[0]["uid"];
+                }
+                $data2 = $this->db->query("insert into transaction (uid, name, date_transaction, amount, transaction_type) values (?, ?, ?, ?, ?);", "isdis", $uid, $_POST["name"], $_POST["date"], $_POST["amount"], $_POST["type"]);
+                if ($data === false) {
+                    $error_msg = "Form failed to submit";
+                }
+                header("Location: {$this->url}/transaction_history/");
+            }
+        }
         include "templates/newTrans.php";
     }
 }
