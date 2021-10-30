@@ -23,7 +23,7 @@
             </div>
         </div>
         <div>
-            <form action="newTrans.php" method="post">
+            <form action="<?=$this->url?>/newTrans/" method="post">
                 <div class="container-fluid px-5">
                 <div class="mx-6">
                     <label for="name" class="form-label">Transaction Name</label>
