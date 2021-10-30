@@ -11,7 +11,21 @@
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"> 
     </head>
-
+    <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border">
+              <p class="navbar-brand px-3 mx-auto"><?=$name?></p>
+              <p class="navbar-brand px-3 mx-auto"><?=$email?></p>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse justify-content-between"  id="navbarNavAltMarkup">
+                <div class="navbar-nav mx-auto">
+                  <a class="nav-item nav-link active" href= "<?=$this->url?>/transaction_history/">Transaction History</a>
+                  <a class="nav-item nav-link active" href= "<?=$this->url?>/logout/">Log Out</a>
+                </div>
+              </div>
+            </nav> 
+    </header>
     <body>
 
 
