@@ -18,11 +18,13 @@
                 <h1>CS4640 Television Trivia Game - Get Started</h1>
                 <p> Welcome to our trivia game!  To get started, login below or enter a new username and password to create an account</p>
             </div>
-            <div class="row justify-content-center">
-                test
-            </div>
         </div>
         <div>
+            <?php
+                if (!empty($error_msg)) {
+                    echo "<div class='alert alert-danger'>$error_msg</div>";
+                }
+            ?>
             <form action="<?=$this->url?>/newTrans/" method="post">
                 <div class="container-fluid px-5">
                 <div class="mx-6">
@@ -30,12 +32,12 @@
                     <input type="text" class="form-control" id="name" name="name" required>
                 </div>
                 <div class="mx-6">
-                    <label for="date" class="form-label"> Date</label>
+                    <label for="date" class="form-label">Date</label>
                     <input type="date" class="form-control" id="date" name="date" required>
                 </div>
                 <div class="mx-6">
-                    <label for="amount" class="form-label">Transaction Name</label>
-                    <input type="number" class="form-control" id="amount" name="amount" min="0.01" required>
+                    <label for="amount" class="form-label">Amount</label>
+                    <input type="number" class="form-control" id="amount" name="amount" required>
                 </div>
                 <div class="mx-6">
                     <label for="type" class="form-label">Transaction Type</label>
