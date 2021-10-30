@@ -11,17 +11,15 @@
         username text not null,
         email text not null,
         password text not null,
+        balance float not null default 0,
         primary key (uid));");
 
     /* Setting up question table */
     $db->query("create table transaction (
         tid int not null auto_increment,
+        uid int not null,
         name text not null,
         date_transaction date not null,
-        amount int not null,
+        amount float not null default 0,
         transaction_type varchar(255) not null,
         primary key (tid));");
-
-    $db->query("create table history (
-        tid int not null,
-        uid int not null);");
