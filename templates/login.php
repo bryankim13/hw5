@@ -7,7 +7,7 @@
         <meta name="author" content="your name">
         <meta name="description" content="include some description about your page">  
 
-        <title>Trivia Game Login</title>
+        <title>P&B's Financing</title>
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"> 
     </head>
@@ -17,8 +17,8 @@
 
         <div class="container" style="margin-top: 15px;">
             <div class="row col-xs-8">
-                <h1>CS4640 Television Trivia Game - Get Started</h1>
-                <p> Welcome to our trivia game!  To get started, login below or enter a new username and password to create an account</p>
+                <h1>Finance like Never Before.</h1>
+                <p> Welcome to Paradise for your wallet</p>
             </div>
             <div class="row justify-content-center">
                 <div class="col-4">
