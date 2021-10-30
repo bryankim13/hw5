@@ -22,6 +22,28 @@
                 test
             </div>
         </div>
+        <div>
+            <form action="newTrans.php" method="get">
+                <div class="container-fluid px-5">
+                <div class="mx-6">
+                    <label for="name" class="form-label">Transaction Name</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="mx-6">
+                    <label for="date" class="form-label"> Date</label>
+                    <input type="date" class="form-control" id="date" name="date" required>
+                </div>
+                <div class="mx-6">
+                    <label for="inout" class="form-label">Transaction Type</label>
+                    <select id="inout" name="inout" class="form-select" required size="2">
+                        <option value="credit" selected>Credit</option>
+                        <option value="debit">Debit</option>
+                    </select>
+                </div>
+                <button type="submit" style="color: white; margin: 5px 3px; background-color: blue">Submit</button>
+                </div>
+            </form>
+        </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     </body>

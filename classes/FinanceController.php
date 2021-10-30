@@ -13,11 +13,15 @@ class FinanceController {
     public function run($command) {
         
         switch($command) {
+            case "new_transaction":
+                $this->newTrans();
+                break;
             case "transaction_history":
                 $this->transaction_history();
                 break;
             case "logout":
                 $this->destroySession();
+                break;
             case "login":
             default:
                 $this->login();
