@@ -5,7 +5,7 @@ class Database {
     private $mysqli;
     
     public function __construct() {
-        include('../database_connection.php'); // where the script starts
+        include('database_connection.php'); // where the script starts
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT); // Extra Error Printing
         $this->mysqli = new mysqli($dbserver, $dbuser, $dbpass, $dbdatabase);
         //$this->mysqli = new mysqli("localhost", "root", "", "example"); // XAMPP

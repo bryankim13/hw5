@@ -13,8 +13,8 @@ class FinanceController {
     public function run($command) {
         
         switch($command) {
-            case "question":
-                $this->question();
+            case "transaction_history":
+                $this->transaction_history();
                 break;
             case "logout":
                 $this->destroySession();
@@ -44,30 +44,32 @@ class FinanceController {
                 // user was found!
                 // validate the user's password
                 if (password_verify($_POST["password"], $data[0]["password"])) {
-                    $_SESSION["name"] = $data[0]["name"];
+                    $_SESSION["username"] = $data[0]["username"];
                     $_SESSION["email"] = $data[0]["email"];
-                    $_SESSION["score"] = $data[0]["score"];
-                    header("Location: {$this->url}/question/");
+                    header("Location: {$this->url}/transaction_history/");
                     return;
                 } else {
                     $error_msg = "Invalid Password";
                 }
             } else {
                 $hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
-                $insert = $this->db->query("insert into user (name, email, password) values (?, ?, ?);", "sss", $_POST["name"], $_POST["email"], $hash);
+                $insert = $this->db->query("insert into hw5user (username, email, password) values (?, ?, ?);", "sss", $_POST["username"], $_POST["email"], $hash);
                 if ($insert === false) {
                     $error_msg = "Error creating new user";
                 } 
                 
-                $_SESSION["name"] = $_POST["name"];
+                $_SESSION["username"] = $_POST["username"];
                 $_SESSION["email"] = $_POST["email"];
-                $_SESSION["score"] = 0;
-                header("Location: {$this->url}/question/");
+                header("Location: {$this->url}/transaction_history/");
                 return;
             }
 
         }
 
         include "templates/login.php";
+    }
+
+    public function transaction_history() {
+        include "templates/tranaction.php";
     }
 }
