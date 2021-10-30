@@ -1,5 +1,9 @@
 <?php
+// Bryan Kim bjk3yf, Paul Ok pso3td
+// Sources: Class lecture and slides, W3School
 
+// Links : https://cs4640.cs.virginia.edu/pso3td/hw5
+           https://cs4640.cs.virginia.edu/bjk3yf/hw5
 spl_autoload_register(function($classname) {
     include "classes/$classname.php";
 });
