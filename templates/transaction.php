@@ -35,7 +35,7 @@
                 <h1>Finance Tracking</h1>
                 <p> Look at your finances!</p>
                 <?php
-                    $data = $this->db->query("select (select sum(amount) as balance from transaction where uid = 1 and transaction_type = 'credit') - (select sum(amount) as balance from transaction where uid = 1 and transaction_type = 'debit') as bal;");
+                    $data = $this->db->query("select (select sum(amount) as balance from transaction where uid = ? and transaction_type = 'credit') - (select sum(amount) as balance from transaction where uid = ? and transaction_type = 'debit') as bal;", "ii", $uid, $uid);
                     if ($data === false) {
                         $error_msg = "Couldn't get balance!";
                     }
