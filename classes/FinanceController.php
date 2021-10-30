@@ -34,6 +34,8 @@ class FinanceController {
         session_destroy();
 
         session_start();
+        header("Location:{$this->url}/login");
+        return;
     }
     
     
@@ -102,5 +104,9 @@ class FinanceController {
         ];
 
         include "templates/transaction.php";
+    }
+
+    public function newTrans() {
+        include "templates/newTrans.php";
     }
 }

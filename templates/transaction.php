@@ -13,8 +13,8 @@
     </head>
     <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light border">
-              <p class="navbar-brand px-3 mx-auto"><?=$name?></p>
-              <p class="navbar-brand px-3 mx-auto"><?=$email?></p>
+              <p class="navbar-brand px-3 mx-auto"><?=$user["name"]?></p>
+              <p class="navbar-brand px-3 mx-auto"><?=$user["email"]?></p>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
