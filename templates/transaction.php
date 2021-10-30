@@ -32,8 +32,8 @@
 
         <div class="container" style="margin-top: 15px;">
             <div class="row col-xs-8">
-                <h1>CS4640 Television Trivia Game - Get Started</h1>
-                <p> Welcome to our trivia game!  To get started, login below or enter a new username and password to create an account</p>
+                <h1>Finance Tracking</h1>
+                <p> Look at your finances!</p>
             </div>
             <div class="row justify-content-center">
                 transactionsHistory
