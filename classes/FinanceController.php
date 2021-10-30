@@ -50,7 +50,6 @@ class FinanceController {
                 if (password_verify($_POST["password"], $data[0]["password"])) {
                     $_SESSION["username"] = $data[0]["username"];
                     $_SESSION["email"] = $data[0]["email"];
-                    $_SESSION["balance"] = $data[0]["balance"];
                     header("Location: {$this->url}/transaction_history");
                     return;
                 } else {
@@ -58,14 +57,13 @@ class FinanceController {
                 }
             } else {
                 $hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
-                $insert = $this->db->query("insert into hw5user (username, email, password, balance) values (?, ?, ?, ?);", "sssi", $_POST["name"], $_POST["email"], $hash, 0);
+                $insert = $this->db->query("insert into hw5user (username, email, password) values (?, ?, ?);", "sss", $_POST["name"], $_POST["email"], $hash);
                 if ($insert === false) {
                     $error_msg = "Error creating new user";
                 } 
                 
                 $_SESSION["username"] = $_POST["username"];
                 $_SESSION["email"] = $_POST["email"];
-                $_SESSION["balance"] = 0;
                 header("Location: {$this->url}/transaction_history");
                 return;
             }
@@ -96,7 +94,6 @@ class FinanceController {
         $user = [
             "name" => $_SESSION["username"],
             "email" => $_SESSION["email"],
-            "balance" => $_SESSION["balance"],
             "uid" => $uid,
             "data2" => $data2
         ];

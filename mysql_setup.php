@@ -11,7 +11,6 @@
         username text not null,
         email text not null,
         password text not null,
-        balance float not null default 0,
         primary key (uid));");
 
     /* Setting up question table */
