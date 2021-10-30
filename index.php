@@ -12,6 +12,7 @@ session_start();
 $path = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 $path = str_replace("/pso3td/hw5/", "", $path);
 $parts = explode("/", $path);
+print_r($path);
 
 
 // If the user's email is not set in the session, then it's not

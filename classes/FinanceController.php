@@ -47,7 +47,7 @@ class FinanceController {
                     $_SESSION["username"] = $data[0]["username"];
                     $_SESSION["email"] = $data[0]["email"];
                     $_SESSION["balance"] = $data[0]["balance"];
-                    header("Location: {$this->url}/transaction_history/");
+                    header("Location: {$this->url}/transaction_history");
                     return;
                 } else {
                     $error_msg = "Invalid Password";
@@ -72,7 +72,6 @@ class FinanceController {
     }
 
     public function transaction_history() {
-        session_start();
         if (!isset($_SESSION["email"])) {
             header("Location: {$this->url}/login/");
             return;
