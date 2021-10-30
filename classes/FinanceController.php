@@ -116,7 +116,7 @@ class FinanceController {
                 } else if (!empty($data)) {
                     $uid = $data[0]["uid"];
                 }
-                $data2 = $this->db->query("insert into transaction (uid, name, date_transaction, amount, transaction_type) values (?, ?, ?, ?, ?);", "isdis", $uid, $_POST["name"], $_POST["date"], $_POST["amount"], $_POST["type"]);
+                $data2 = $this->db->query("insert into transaction (uid, name, date_transaction, amount, transaction_type) values (?, ?, ?, ?, ?);", "issis", $uid, $_POST["name"], $_POST["date"], $_POST["amount"], $_POST["type"]);
                 if ($data === false) {
                     $error_msg = "Form failed to submit";
                 }
