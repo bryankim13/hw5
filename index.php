@@ -10,7 +10,7 @@ session_start();
 
 // Parse the URL
 $path = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
-$path = str_replace("/hw5/", "", $path);
+$path = str_replace("/pso3td/hw5/", "", $path);
 $parts = explode("/", $path);
 
 

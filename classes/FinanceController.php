@@ -4,7 +4,7 @@ class FinanceController {
 
     private $db;
     
-    private $url = "";
+    private $url = "/pso3td/hw5";
     
     public function __construct() {
         $this->db = new Database();
@@ -37,7 +37,7 @@ class FinanceController {
         // our login code from index.php last time!
         $error_msg = "";
         if (isset($_POST["email"])) { /// validate the email coming in
-            $data = $this->db->query("select * from user where email = ?;", "s", $_POST["email"]);
+            $data = $this->db->query("select * from hw5user where email = ?;", "s", $_POST["email"]);
             if ($data === false) {
                 $error_msg = "Error checking for user";
             } else if (!empty($data)) { 
@@ -53,7 +53,7 @@ class FinanceController {
                 }
             } else {
                 $hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
-                $insert = $this->db->query("insert into hw5user (username, email, password) values (?, ?, ?);", "sss", $_POST["username"], $_POST["email"], $hash);
+                $insert = $this->db->query("insert into hw5user (username, email, password) values (?, ?, ?);", "sss", $_POST["name"], $_POST["email"], $hash);
                 if ($insert === false) {
                     $error_msg = "Error creating new user";
                 } 
