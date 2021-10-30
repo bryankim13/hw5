@@ -93,12 +93,11 @@ class FinanceController {
             $error_msg = "Error checking for user";
         }
 
-        
         $user = [
             "name" => $_SESSION["username"],
             "email" => $_SESSION["email"],
             "uid" => $uid,
-            "data2" => $data2
+            "data2" => $data2,
         ];
 
         include "templates/transaction.php";

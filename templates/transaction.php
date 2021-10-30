@@ -35,7 +35,7 @@
                 <h1>Finance Tracking</h1>
                 <p> Look at your finances!</p>
                 <?php
-                    $data = $this->db->query("select (select sum(amount) as balance from transaction where uid = 1 and transaction_type = 'credit') - (select sum(amount) as balance from transaction where uid = 1 and transaction_type = 'debit') as bal;");
+                    $data = $this->db->query("select (select sum(amount) as balance from transaction where uid = ? and transaction_type = 'credit') - (select sum(amount) as balance from transaction where uid = ? and transaction_type = 'debit') as bal;", "ii", $uid, $uid);
                     if ($data === false) {
                         $error_msg = "Couldn't get balance!";
                     }
@@ -47,7 +47,7 @@
                 <?php
                     echo "<table><tr><td><center><b>Transaction Name</b></center></td><td><center><b>Date</b></center></td><td><center><b>Amount</b></center></td><td><center><b>Transaction Type</b></center></td></tr><br>";
                     foreach($data2 as $row) {
-                        echo "<tr><td><center>" . $row["name"] . " " . $row["date_transaction"] . " " . $row["amount"] . " " . $row["transaction_type"] . "</center></td></tr><br>";
+                        echo "<tr><td><center>" . $row["name"] . "</center></td><td><center>" . $row["date_transaction"] . "</center></td><td><center>" . $row["amount"] . "</center></td><td><center>" . $row["transaction_type"] . "</center></td></tr><br>";
                     }
                     echo "</table>";
                 ?>
