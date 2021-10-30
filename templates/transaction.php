@@ -22,6 +22,11 @@
             </div>
             <div class="row justify-content-center">
                 transactionsHistory
+                <?php
+                    foreach($data2 as $row) {
+                        echo "<p>" . $row["name"] . " " . $row["date_transaction"] . " " . $row["amount"] . " " . $row["transaction_type"] . "</p>";
+                    }
+                ?>
             </div>
         </div>
 

@@ -62,7 +62,7 @@ class FinanceController {
                 $_SESSION["username"] = $_POST["username"];
                 $_SESSION["email"] = $_POST["email"];
                 $_SESSION["balance"] = 0;
-                header("Location: {$this->url}/transaction_history/");
+                header("Location: {$this->url}/transaction_history");
                 return;
             }
 
@@ -76,6 +76,27 @@ class FinanceController {
             header("Location: {$this->url}/login/");
             return;
         }
+        $data = $this->db->query("select * from hw5user where email = ?;", "s", $_SESSION["email"]);
+        $uid = "";
+        if ($data === false) {
+            $error_msg = "Error checking for user";
+        } else if (!empty($data)) {
+            $uid = $data[0]["uid"];
+        }
+
+        $data2 = $this->db->query("select * from transaction where uid = ?;", "i", $uid);
+        if ($data2 === false) {
+            $error_msg = "Error checking for user";
+        }
+
+        $user = [
+            "name" => $_SESSION["username"],
+            "email" => $_SESSION["email"],
+            "balance" => $_SESSION["balance"],
+            "uid" => $uid,
+            "data2" => $data2
+        ];
+
         include "templates/transaction.php";
     }
 }
