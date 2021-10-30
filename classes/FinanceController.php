@@ -93,6 +93,7 @@ class FinanceController {
             $error_msg = "Error checking for user";
         }
 
+        
         $user = [
             "name" => $_SESSION["username"],
             "email" => $_SESSION["email"],
@@ -117,12 +118,17 @@ class FinanceController {
                     $uid = $data[0]["uid"];
                 }
                 $data2 = $this->db->query("insert into transaction (uid, name, date_transaction, amount, transaction_type) values (?, ?, ?, ?, ?);", "issis", $uid, $_POST["name"], $_POST["date"], $_POST["amount"], $_POST["type"]);
-                if ($data === false) {
+                if ($data2 === false) {
                     $error_msg = "Form failed to submit";
                 }
                 header("Location: {$this->url}/transaction_history/");
             }
         }
+
+        $user2 = [
+            "name" => $_SESSION["username"],
+            "email" => $_SESSION["email"],
+        ];
         include "templates/newTrans.php";
     }
 }
