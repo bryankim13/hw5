@@ -72,10 +72,11 @@ class FinanceController {
     }
 
     public function transaction_history() {
-        if (!isset($_POST["email"])) {
+        session_start();
+        if (!isset($_SESSION["email"])) {
             header("Location: {$this->url}/login/");
             return;
         }
-        include "templates/tranaction.php";
+        include "templates/transaction.php";
     }
 }
