@@ -88,16 +88,21 @@ class FinanceController {
             $uid = $data[0]["uid"];
         }
 
-        $data2 = $this->db->query("select * from transaction where uid = ? order by date_transaction desc;", "i", $uid);
+        $data2 = $this->db->query("select * from transaction where uid = ? order by date_transaction asc;", "i", $uid);
         if ($data2 === false) {
             $error_msg = "Error checking for user";
         }
 
+        $data3 = $this->db->query("select (select sum(amount) as balance from transaction where uid = ? and transaction_type = 'credit') - (select sum(amount) as balance from transaction where uid = ? and transaction_type = 'debit') as bal;", "ii", $uid, $uid);
+            if ($data3 === false) {
+                $error_msg = "Couldn't get balance!";
+            }
         $user = [
             "name" => $_SESSION["username"],
             "email" => $_SESSION["email"],
             "uid" => $uid,
             "data2" => $data2,
+            "data3" => $data3
         ];
 
         include "templates/transaction.php";
